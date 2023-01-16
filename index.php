@@ -9,7 +9,7 @@ $home = new HomeController();
 
 // $home->index("accueil");
 
-$pages = ['accueil', 'AddProduct', 'DeleteProduct', 'UpdateProduct', 'Dashboard','products'];
+$pages = ['accueil', 'AddProduct', 'DeleteProduct', 'UpdateProduct', 'Dashboard','products','login','logout'];
 
 if (isset($_GET['page'])) {
     if (in_array($_GET['page'], $pages)) {
