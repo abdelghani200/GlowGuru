@@ -33,9 +33,6 @@
                         <input type="hidden" name="product_id" value="<?php echo $productToUpdate->product_id; ?>">
                         <input type="hidden" name="product_current_image" value="<?php echo $productToUpdate->product_image; ?>">
                         <div class="form-group">
-                            <input type="number" autocomplete="off" class="form-control" name="product_quantity" placeholder="Quantité" value="<?php echo $productToUpdate->product_quantity; ?>">
-                        </div>
-                        <div class="form-group">
                            <img src="" alt="">
                         </div>
                         <div class="form-group">
