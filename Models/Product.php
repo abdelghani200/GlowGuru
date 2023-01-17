@@ -22,21 +22,29 @@ class Product
         }
     }
 
+    
+
     static public function addProduct($data)
     {
-        $stmt = BD::connect()->prepare('INSERT INTO products (product_title
-        ,product_description,product_image,product_price)
-        VALUES (:product_title,:product_description,:product_image,:product_price)');
-        $stmt->bindParam(':product_title', $data['product_title']);
-        $stmt->bindParam(':product_description', $data['product_description']);
-        $stmt->bindParam(':product_image', $data['product_image']);
-        $stmt->bindParam(':product_price', $data['product_price']);
-        if ($stmt->execute()) {
-            return 'ok';
-        } else {
-            return 'error';
+        $data = $_POST;
+        $count = count($_POST['product_title']);
+        $results = array();
+        for ($i = 0; $i < $count; $i++) {
+            $stmt = BD::connect()->prepare('INSERT INTO products (product_title, product_description, product_image, product_price) 
+            VALUES (:product_title, :product_description, :product_image, :product_price)');
+            $stmt->bindParam(':product_title', $data['product_title'][$i]);
+            $stmt->bindParam(':product_description', $data['product_description'][$i]);
+            $stmt->bindParam(':product_image', $data['product_image'][$i]);
+            $stmt->bindParam(':product_price', $data['product_price'][$i]);
+            if ($stmt->execute()) {
+                $results[] = 'ok';
+            } else {
+                $results[] = 'error';
+            }
         }
+        return $results;
     }
+
 
     static public function editProduct($data)
     {

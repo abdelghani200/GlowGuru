@@ -22,25 +22,72 @@ class ProductController
         }
     }
 
+
+    // public function newProduct()
+    // {
+    //     if (isset($_POST["submit"])) {
+    //         $data = array();
+    //         $images = $this->uploadPhoto();
+    //         for ($i = 0; $i < count($_FILES["image"]["name"]); $i++) {
+    //             $data[] = array(
+    //                 "product_title" => $_POST["product_title"][$i],
+    //                 "product_description" => $_POST["product_description"][$i],
+    //                 "product_image" => $images[$i],
+    //                 "product_price" => $_POST["product_price"][$i],
+    //             );
+    //         }
+    //         $result = Product::addProduct($data);
+    //         if (!in_array("error", $result)) {
+    //             Session::set("success", "Produits ajoutés");
+    //             Redirect::to("products");
+    //         } else {
+    //             echo $result;
+    //         }
+    //     }
+    // }
+
+
     public function newProduct()
     {
         if (isset($_POST["submit"])) {
-            $data = array(
-                "product_title" => $_POST["product_title"],
-                "product_description" => $_POST["product_description"],
-                "product_image" => $this->uploadPhoto(),
-                "product_price" => $_POST["product_price"],
+            $images = $this->uploadPhoto();
+            $data = array();
+            $results = array();
 
-            );
-            $result = Product::addProduct($data);
-            if ($result === "ok") {
-                Session::set("success", "Produit ajouté");
+            for ($i = 0; $i < count($_POST["product_title"]); $i++) {
+                $data[] = array(
+                    "product_title" => $_POST["product_title"][$i],
+                    "product_description" => $_POST["product_description"][$i],
+                    "product_image" => $images[$i],
+                    "product_price" => $_POST["product_price"][$i],
+                );
+            }
+
+            $stmt = BD::connect()->prepare('INSERT INTO products (product_title, product_description, product_image, product_price) VALUES (:product_title, :product_description, :product_image, :product_price)');
+
+            foreach ($data as $product) {
+                $stmt->bindParam(':product_title', $product['product_title']);
+                $stmt->bindParam(':product_description', $product['product_description']);
+                $stmt->bindParam(':product_image', $product['product_image']);
+                $stmt->bindParam(':product_price', $product['product_price']);
+                if ($stmt->execute()) {
+                    $results[] = 'ok';
+                } else {
+                    $results[] = 'error';
+                }
+            }
+
+            if (!in_array("error", $results)) {
+                Session::set("success", "Produits ajoutés");
                 Redirect::to("products");
             } else {
-                echo $result;
+                echo $results;
             }
         }
     }
+
+
+
 
     public function updateProduct()
     {
@@ -63,21 +110,28 @@ class ProductController
         }
     }
 
-    public function uploadPhoto($oldImage = null)
+    public function uploadPhoto($oldImages = null)
     {
         $dir = "public/uploads";
-        $time = time();
-        $name = str_replace(' ', '-', strtolower($_FILES["image"]["name"]));
-        $type = $_FILES["image"]["type"];
-        $ext = substr($name, strpos($name, '.'));
-        $ext = str_replace('.', '', $ext);
-        $name = preg_replace("/\.[^.\s]{3,4}$/", "", $name);
-        $imageName = $name . '-' . $time . '.' . $ext;
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $dir . "/" . $imageName)) {
-            return $imageName;
+        $images = array();
+        for ($i = 0; $i < count($_FILES["image"]["name"]); $i++) {
+            $time = time();
+            $name = str_replace(' ', '-', strtolower($_FILES["image"]["name"][$i]));
+            $type = $_FILES["image"]["type"][$i];
+            $ext = substr($name, strpos($name, '.'));
+            $ext = str_replace('.', '', $ext);
+            $name = preg_replace("/\.[^.\s]{3,4}$/", "", $name);
+            $imageName = $name . '-' . $time . '.' . $ext;
+            if (move_uploaded_file($_FILES["image"]["tmp_name"][$i], $dir . "/" . $imageName)) {
+                $images[] = $imageName;
+            } else {
+                $images[] = $oldImages[$i];
+            }
         }
-        return $oldImage;
+        return $images;
     }
+
+
 
     public function removeProduct()
     {

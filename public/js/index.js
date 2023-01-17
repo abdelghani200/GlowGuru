@@ -14,3 +14,6 @@ function deleteForm($id) {
     input.value = $id;
     form.submit();
 }
+
+
+const search = document.querySelector(".search");
