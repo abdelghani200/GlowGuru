@@ -15,5 +15,15 @@ function deleteForm($id) {
     form.submit();
 }
 
-
-const search = document.querySelector(".search");
+const ProductName = document.getElementsByClassName("ProductName");
+search.addEventListener("input",()=>{
+    Array.from(ProductName).forEach(ele =>{
+    console.log(search.value);
+    if(ele.innerText.includes(search.value)){
+        ele.parentElement.parentElement.style.display = "grid";
+    }
+    else{
+        ele.parentElement.parentElement.style.display = "none";
+    }
+   });
+})
