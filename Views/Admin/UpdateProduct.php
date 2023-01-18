@@ -1,10 +1,13 @@
 <?php
-
+if (isset($_SESSION["admin"]) && $_SESSION["admin"] == true) {
 $productToUpdate = new ProductController();
 $productToUpdate = $productToUpdate->getProduct();
 if (isset($_POST["submit"])) {
     $product = new ProductController();
     $product->updateProduct();
+}
+} else {
+    Redirect::to("accueil");
 }
 
 ?>

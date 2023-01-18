@@ -15,8 +15,8 @@ $products = $data->getAllProducts();
 
 <div class="container">
     <div class="btn-search">
-        <input type="text" placeholder="Search For Product" class="search">
-        <i class="fa-solid fa-magnifying-glass search"></i>
+        <input type="text" placeholder="Search For Product" class="search" style="transition: all 0.3s ease-in-out;margin: 10px;width: 300px;height: 40px;font-size: 16px;color: #333;">
+        <!-- <i class="fa-solid fa-magnifying-glass search" style="font-size: 20px;color: #ccc;"></i> -->
     </div>
 </div>
 

@@ -1,7 +1,7 @@
 <?php
-// if (isset($_SESSION["logged"]) && $_SESSION["logged"] === true) {
-//     Redirect::to("products");
-// }
+if (isset($_SESSION["logged"]) && $_SESSION["logged"] === true) {
+    Redirect::to("products");
+}
 
 $loginUser = new UserController();
 $loginUser->auth();

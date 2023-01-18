@@ -14,7 +14,7 @@
             <h4>Benefits</h4>
             <hr class="hr-line">
             <p style="font-family: cursive;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo sit ipsum magnam praesentium hic quae, dolorum eaque tempora quaerat rem nam fugit? Possimus magni officiis modi maiores sint laudantium voluptas? Dolorum consequuntur! Iure natus vitae enim quam eligendi exercitationem culpa quae omnis autem.</p>
-            <a href="#" class="btn btn-warning text-white">Read More -></a>
+            <a href="#" class="btn btn-warning text-white" id="reade_more">Read More -></a>
         </div>
     </div>
 </div>

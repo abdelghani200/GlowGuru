@@ -1,12 +1,12 @@
 <?php
-// if (isset($_SESSION["admin"]) && $_SESSION["admin"] == true) {
+if (isset($_SESSION["admin"]) && $_SESSION["admin"] == true) {
 if (isset($_POST["submit"])) {
     $product = new ProductController();
     $product->newProduct();
 }
-// } else {
-//     Redirect::to("home");
-// }
+} else {
+    Redirect::to("accueil");
+}
 ?>
 
 
@@ -25,7 +25,7 @@ if (isset($_POST["submit"])) {
                     <form method="post" class="mr-1" enctype="multipart/form-data">
                         <div class="form-group form_add">
                             <div class="form-group mt-3">
-                                <input type="text" class="form-control" name="product_title[]" required autocomplete="off" placeholder="Titre" id="">
+                                <input type="text" class="form-control" name="product_title[]"  autocomplete="off" placeholder="Titre" id="">
                             </div>
                             <div class="form-group mt-3">
                                 <textarea row="5" cols="20" autocomplete="off" class="form-control" name="product_description[]" placeholder="Description" id=""></textarea>
@@ -48,28 +48,30 @@ if (isset($_POST["submit"])) {
                     </form>
                 </div>
             </div>
-            <script>
-                $(document).ready(function() {
-                    $('#btn').click(function(e) {
-                        e.preventDefault();
-                        $('.form_add').append(`
-                <div class="form-group mt-3">
-                    <input type="text" class="form-control" name="product_title[]" required autocomplete="off" placeholder="Titre">
-                </div>
-                <div class="form-group mt-3">
-                    <textarea rows="5" cols="20" autocomplete="off" class="form-control" name="product_description[]" placeholder="Description"></textarea>
-                </div>
-                <div class="form-group mt-3">
-                    <input type="number" autocomplete="off" class="form-control" name="product_price[]" placeholder="Prix">
-                </div>
-                <div class="form-group mt-3">
-                    <input type="file" class="form-control" name="image[]" multiple>
-                </div>
-            `);
-                    });
-                });
-            </script>
-
+            
         </div>
     </div>
 </div>
+
+
+<!-- <script>
+    $(document).ready(function() {
+        $('#btn').click(function(e) {
+            e.preventDefault();
+            $('.form_add').append(`
+    <div class="form-group mt-3">
+        <input type="text" class="form-control" name="product_title[]" required autocomplete="off" placeholder="Titre">
+    </div>
+    <div class="form-group mt-3">
+        <textarea rows="5" cols="20" autocomplete="off" class="form-control" name="product_description[]" placeholder="Description"></textarea>
+    </div>
+    <div class="form-group mt-3">
+        <input type="number" autocomplete="off" class="form-control" name="product_price[]" placeholder="Prix">
+    </div>
+    <div class="form-group mt-3">
+        <input type="file" class="form-control" name="image[]" multiple>
+    </div>
+`);
+        });
+    });
+</script> -->
