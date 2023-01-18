@@ -16,6 +16,14 @@
 
 <body>
 
+<?php include("navbar.php")  ?>
 
+<div class="row">
 
-    <?php include("navbar.php")  ?>
+    <div class="col-md-10 mx-auto m-3 text-center">
+       <?php
+        include('./Views/includes/messages.php');
+       ?>
+    </div>
+
+</div>

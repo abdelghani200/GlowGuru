@@ -65,7 +65,7 @@
 
 
 /* accueil */
-
+/* 
 .card {
     width: 190px;
     height: 254px;
@@ -107,16 +107,16 @@
 }
 
 /*Text*/
-.text-title {
+/* .text-title {
     font-size: 1.5em;
     font-weight: bold;
-}
+} */
 
 /*Hover*/
-.card:hover {
+/* .card:hover {
     border-color: #008bf8;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
-}
+}  */
 
 
 /* end accueil */
