@@ -62,7 +62,14 @@
 
 /* end footer */
 
+/* hr */
+.hr-line {
+    border-top: 1px solid #ccc;
+    margin-top: 1px;
+    margin-bottom: 1em;
+}
 
+/* end hr  */
 
 /* accueil */
 /* 

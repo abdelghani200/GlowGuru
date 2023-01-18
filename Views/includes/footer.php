@@ -1,6 +1,6 @@
 <div class="footer-basic">
     <footer style="background: url('<?php echo BASE_URL;?>public/images/wave.svg');">
-        <h5 class="text-center mt-5">Catalogue <span style="color:aqua">Web</span> GlowGuru</h5>
+        <h5 class="text-center mt-5" style="font-family: cursive;">Catalogue <span style="color:aqua">Web</span> GlowGuru</h5>
         <div class="social"><a href="#"><i class="fa-brands fa-instagram"></i></a><a href="#"><i class="fa-brands fa-snapchat"></i></i></a><a href="#"><i class="fa-brands fa-twitter"></i></a><a href="#"><i class="fa-brands fa-facebook-f"></i></a></div>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="#">Accueil</a></li>
