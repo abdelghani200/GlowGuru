@@ -1,12 +1,20 @@
 <?php
-
+if (isset($_SESSION["admin"]) && $_SESSION["admin"] == true) {
 $data = new ProductController();
 $products = $data->getAllProducts();
-
+} else {
+    Redirect::to("accueil");
+}
 ?>
-<h1 class="text-center mt-5">gestion des produits</h1>
-<div class="container mt-5">
-    <form id="form" action="<?php echo BASE_URL ?>UpdateProduct" method="post">
+<h1 class="text-center mt-3">gestion des produits</h1>
+
+
+
+<div class="container mt-3">
+    
+<a href="<?php echo BASE_URL; ?>AddProduct" class="btn btn-success"><i class="fa-solid fa-plus"></i>Ajouter un produit</a>
+
+    <form id="form" action="<?php echo BASE_URL ?>UpdateProduct" method="post" class="mt-3">
         <input type="hidden" name="product_id" id="product_id">
     </form>
     <form id="delete_form" action="<?php echo BASE_URL ?>DeleteProduct" method="post">
@@ -19,7 +27,6 @@ $products = $data->getAllProducts();
                 <th scope="col">Image</th>
                 <th scope="col">Nom Produit</th>
                 <th scope="col">Price</th>
-                <!-- <th scope="col">publié le</th> -->
                 <th scope="col">description</th>
                 <th scope="col">Action</th>
             </tr>

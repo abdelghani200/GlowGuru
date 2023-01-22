@@ -97,7 +97,7 @@ class ProductController
                 "id" => $_POST["product_id"],
                 "product_title" => $_POST["product_title"],
                 "product_description" => $_POST["product_description"],
-                "product_image" => $this->uploadPhoto($oldImage),
+                "product_image" => $this->uploadPhotoToUpdat($oldImage),
                 "product_price" => $_POST["product_price"],
             );
             $result = Product::editProduct($data);
@@ -109,6 +109,7 @@ class ProductController
             }
         }
     }
+
 
     public function uploadPhoto($oldImages = null)
     {
@@ -132,7 +133,24 @@ class ProductController
     }
 
 
+    public function uploadPhotoToUpdat($oldImage = null)
+    {
+        $dir = "public/uploads";
+        $time = time();
+        $name = str_replace(' ', '-', strtolower($_FILES["image"]["name"]));
+        $type = $_FILES["image"]["type"];
+        $ext = substr($name, strpos($name, '.'));
+        $ext = str_replace('.', '', $ext);
+        $name = preg_replace("/\.[^.\s]{3,4}$/", "", $name);
+        $imageName = $name . '-' . $time . '.' . $ext;
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $dir . "/" . $imageName)) {
+            return $imageName;
+        }
+        return $oldImage;
+    }
 
+
+    
     public function removeProduct()
     {
         if (isset($_POST["delete_product_id"])) {

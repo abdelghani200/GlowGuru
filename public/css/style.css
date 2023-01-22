@@ -76,3 +76,57 @@
 }
 
 
+/* Container styles */
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh;  */
+    /* adjust this to match the desired height */
+  }
+  
+  /* Search Input styles */
+  .search {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    background-color: #f5f5f5;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+    /* width: 90%;  */
+    max-width: 500px; 
+  }
+  
+  /* Search icon styles */
+  .fa-search {
+    font-size: 20px;
+    color: #ccc;
+    margin-left: -40px;
+     /* adjust this to match the desired margin */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Input hover styles */
+  .search:hover {
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #ccc;
+  }
+  
+  /* Icon hover styles */
+  /* .search:hover + .fa-search {
+    color: #333;
+  } */
+  
+/* 
+  .card-x{
+    margin-bottom: 1rem;
+    height: 30%;
+  } */
+
+.prod-desc{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 1px;
+}

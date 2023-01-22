@@ -10,7 +10,7 @@
                         <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL; ?>accueil">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active ms-5" href="<?php echo BASE_URL; ?>produits">Produit</a>
+                        <a class="nav-link active" href="<?php echo BASE_URL; ?>produits">Produit</a>
                     </li>
                 </ul>
                 <div class="dropdown">

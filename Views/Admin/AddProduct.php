@@ -9,9 +9,6 @@ if (isset($_POST["submit"])) {
 }
 ?>
 
-
-
-
 <div class="container mt-5">
     <div class="row my-4">
         <div class="col-md-6 mx-auto">

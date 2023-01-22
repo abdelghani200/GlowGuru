@@ -15,12 +15,6 @@ function deleteForm($id) {
     form.submit();
 }
 
-// function Remove(form_id) {
-//     if (window.confirm('Remove this form?')) {
-//         var f = document.getElementById(form_id);
-//         f.parentNode.removeChild(f);
-//     }
-// }
 
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("btn").addEventListener("click", function (e) {
@@ -44,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         formGroup.appendChild(inputTitle);
 
         let textArea = document.createElement("textarea");
-        textArea.setAttribute("rows", "5");
+        textArea.setAttribute("rows", "2");
         textArea.setAttribute("cols", "20");
         textArea.setAttribute("class", "mt-3");
         textArea.setAttribute("autocomplete", "off");
@@ -91,10 +85,10 @@ search.addEventListener("input", () => {
     Array.from(ProductName).forEach(ele => {
         // console.log(search.value);
         if (ele.innerText.includes(search.value)) {
-            ele.parentElement.parentElement.style.display = "flex";
+            ele.parentElement.parentElement.parentElement.style.display = "block";
         }
         else {
-            ele.parentElement.parentElement.style.display = "none";
+            ele.parentElement.parentElement.parentElement.style.display = "none";
         }
     });
 })

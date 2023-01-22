@@ -19,13 +19,13 @@ if (isset($_GET['page'])) {
             $admin = new AdminController();
             $admin->index($page);
             // }else{
-            //     include('views/includes/404.php');
+            //     include('Views/includes/404.php');
             // }
         } else {
             $home->index($page);
         }
     } else {
-        // include('views/includes/404.php');
+        include('Views/includes/404.php');
     }
 } else {
     $home->index("accueil");
