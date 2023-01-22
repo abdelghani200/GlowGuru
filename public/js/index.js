@@ -4,7 +4,6 @@ function submitForm($id) {
     const form = document.querySelector("#form");
     input.value = $id;
     form.submit();
-    // console.log(12);
 }
 
 
@@ -81,14 +80,29 @@ document.addEventListener("DOMContentLoaded", function () {
 const search = document.querySelector(".search");
 
 const ProductName = document.getElementsByClassName("ProductName");
+let found = false;
 search.addEventListener("input", () => {
-    Array.from(ProductName).forEach(ele => {
+    const arrayProd = Array.from(ProductName)
+    arrayProd.forEach(ele => {
         // console.log(search.value);
         if (ele.innerText.includes(search.value)) {
             ele.parentElement.parentElement.parentElement.style.display = "block";
+            found =true
         }
         else {
             ele.parentElement.parentElement.parentElement.style.display = "none";
         }
     });
+    const notFound = document.querySelector(".not-found");
+    if (!found) {
+        notFound.style.display = "block";
+    } else {
+        notFound.style.display = "none";
+        found = false;
+    }
 })
+
+
+// let array =["cat", "dog", "ggf"];
+
+// console.log(array.includes("cat"));

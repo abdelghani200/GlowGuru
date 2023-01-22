@@ -40,7 +40,7 @@ $products = $data->getAllProducts();
                     </td>
                     <td><?= $product["product_title"] ?></td>
                     <td><?= $product["product_price"] ?></td>
-                    <td><?= $product["product_description"] ?></td>
+                    <td><?= substr($product["product_description"], 0, 20); ?>...</td>
                     <td>
                         <a onclick="submitForm(<?php echo $product['id']; ?>)" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
                         <a onclick="deleteForm(<?php echo $product['id']; ?>)" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>

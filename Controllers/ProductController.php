@@ -23,30 +23,6 @@ class ProductController
     }
 
 
-    // public function newProduct()
-    // {
-    //     if (isset($_POST["submit"])) {
-    //         $data = array();
-    //         $images = $this->uploadPhoto();
-    //         for ($i = 0; $i < count($_FILES["image"]["name"]); $i++) {
-    //             $data[] = array(
-    //                 "product_title" => $_POST["product_title"][$i],
-    //                 "product_description" => $_POST["product_description"][$i],
-    //                 "product_image" => $images[$i],
-    //                 "product_price" => $_POST["product_price"][$i],
-    //             );
-    //         }
-    //         $result = Product::addProduct($data);
-    //         if (!in_array("error", $result)) {
-    //             Session::set("success", "Produits ajoutés");
-    //             Redirect::to("products");
-    //         } else {
-    //             echo $result;
-    //         }
-    //     }
-    // }
-
-
     public function newProduct()
     {
         if (isset($_POST["submit"])) {
