@@ -22,6 +22,16 @@ class User
             return false;
         }
     }
+
+    public static function checkUsername($username)
+    {
+        $req = BD::connect()->prepare('SELECT * FROM users WHERE username = :username');
+        $req->execute(array('username' => $username));
+        $user = $req->fetch();
+        if ($user) {
+            return true;
+        }
+        return false;
+    }
+
 }
-
-

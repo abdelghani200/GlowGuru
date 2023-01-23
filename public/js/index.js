@@ -26,13 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let formGroup = document.createElement("div");
         formGroup.classList.add("form-group", "mt-3");
-        formGroup.setAttribute("id", "form_id mt-3");
-
         let inputTitle = document.createElement("input");
         inputTitle.setAttribute("type", "text");
         inputTitle.classList.add("form-control");
         inputTitle.setAttribute("name", "product_title[]");
-        inputTitle.setAttribute("autocomplete", "off");
         inputTitle.setAttribute("placeholder", "Titre");
         formGroup.appendChild(inputTitle);
 
@@ -40,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
         textArea.setAttribute("rows", "2");
         textArea.setAttribute("cols", "20");
         textArea.setAttribute("class", "mt-3");
-        textArea.setAttribute("autocomplete", "off");
         textArea.classList.add("form-control");
         textArea.setAttribute("name", "product_description[]");
         textArea.setAttribute("placeholder", "Description");
@@ -49,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let inputPrice = document.createElement("input");
         inputPrice.setAttribute("type", "number");
         inputPrice.setAttribute("class", "mt-3");
-        inputPrice.setAttribute("autocomplete", "off");
         inputPrice.classList.add("form-control");
         inputPrice.setAttribute("name", "product_price[]");
         inputPrice.setAttribute("placeholder", "Prix");
@@ -87,7 +82,7 @@ search.addEventListener("input", () => {
         // console.log(search.value);
         if (ele.innerText.includes(search.value)) {
             ele.parentElement.parentElement.parentElement.style.display = "block";
-            found =true
+            found = true
         }
         else {
             ele.parentElement.parentElement.parentElement.style.display = "none";
@@ -103,6 +98,12 @@ search.addEventListener("input", () => {
 })
 
 
+
+
+
+
+
 // let array =["cat", "dog", "ggf"];
 
 // console.log(array.includes("cat"));
+

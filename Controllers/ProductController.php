@@ -22,6 +22,26 @@ class ProductController
         }
     }
 
+    public function getTotalProduct()
+    {
+        $products = Product::Total();
+        return $products;
+    }
+
+
+    public function getMaxProduct()
+    {
+        $products = Product::MaxPrice();
+        return $products;
+    }
+
+
+    public function getMinProduct()
+    {
+        $products = Product::MinPrice();
+        return $products;
+    }
+
 
     public function newProduct()
     {
@@ -36,7 +56,7 @@ class ProductController
                     "product_description" => $_POST["product_description"][$i],
                     "product_image" => $images[$i],
                     "product_price" => $_POST["product_price"][$i],
-                );
+                );              
             }
 
             $stmt = BD::connect()->prepare('INSERT INTO products (product_title, product_description, product_image, product_price) VALUES (:product_title, :product_description, :product_image, :product_price)');
@@ -62,6 +82,7 @@ class ProductController
         }
     }
 
+    
 
 
 
@@ -126,7 +147,7 @@ class ProductController
     }
 
 
-    
+
     public function removeProduct()
     {
         if (isset($_POST["delete_product_id"])) {

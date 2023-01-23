@@ -45,6 +45,26 @@ class Product
         return $results;
     }
 
+    static public function Total(){
+        $stmt = BD::connect()->prepare("SELECT COUNT(*) FROM products");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+
+    static public function MaxPrice(){
+        $stmt = BD::connect()->prepare("SELECT   MAX(product_price) FROM products");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+
+    static public function MinPrice(){
+        $stmt = BD::connect()->prepare("SELECT  MIN(product_price) FROM products");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
 
     static public function editProduct($data)
     {

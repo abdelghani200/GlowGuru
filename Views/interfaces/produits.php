@@ -35,7 +35,7 @@ $products = $data->getAllProducts();
                         </div>
                         <div class="card-footer d-flex justify-content-between">
                             <span class="text-secondary"> <?php echo $product["product_price"] ?> €</span>
-                            <a href="#" class="btn btn-info">More info</a>
+                            <a href="#" class="btn btn-info">Add To Cart</a>
                         </div>
                     </div>
                 </div>

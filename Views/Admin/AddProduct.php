@@ -1,9 +1,9 @@
 <?php
 if (isset($_SESSION["admin"]) && $_SESSION["admin"] == true) {
-if (isset($_POST["submit"])) {
-    $product = new ProductController();
-    $product->newProduct();
-}
+    if (isset($_POST["submit"])) {
+        $product = new ProductController();
+        $product->newProduct();
+    }
 } else {
     Redirect::to("accueil");
 }
@@ -22,33 +22,66 @@ if (isset($_POST["submit"])) {
                     <form method="post" class="mr-1" enctype="multipart/form-data">
                         <div class="form-group form_add">
                             <div class="form-group mt-3">
-                                <input type="text" class="form-control" name="product_title[]"  autocomplete="off" placeholder="Titre" id="">
+                                <input type="text" class="form-control" name="product_title[]" placeholder="Titre" id="product_title" required>
                             </div>
                             <div class="form-group mt-3">
-                                <textarea row="5" cols="20" autocomplete="off" class="form-control" name="product_description[]" placeholder="Description" id=""></textarea>
+                                <textarea row="5" cols="20" class="form-control" name="product_description[]" placeholder="Description" id="product_description" required></textarea>
                             </div>
                             <div class="form-group mt-3">
-                                <input type="number" autocomplete="off" class="form-control" name="product_price[]" placeholder="Prix" id="">
+                                <input type="number" class="form-control" name="product_price[]" placeholder="Prix" id="" required>
                             </div>
                             <div class="form-group mt-3">
-                                <input type="file" class="form-control" name="image[]" multiple>
+                                <input type="file" class="form-control" name="image[]" multiple required>
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <button name="submit" class="btn btn-primary">
+                            <button name="submit" id="submit" class="btn btn-primary">
                                 Enregistrer
                             </button>
                             <button name="submit" id="btn" class="btn btn-warning ms-3">
                                 Ajouter Produit
                             </button>
                         </div>
+                        <span role="alert" id="nameError" aria-hidden="true">
+                            Please enter First Name
+                        </span>
                     </form>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- <script>

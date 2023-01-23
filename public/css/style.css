@@ -103,7 +103,6 @@
     font-size: 20px;
     color: #ccc;
     margin-left: -40px;
-     /* adjust this to match the desired margin */
     transition: all 0.3s ease-in-out;
   }
   
@@ -113,20 +112,16 @@
     box-shadow: 0px 0px 10px #ccc;
   }
   
-  /* Icon hover styles */
-  /* .search:hover + .fa-search {
-    color: #333;
-  } */
-  
-/* 
-  .card-x{
-    margin-bottom: 1rem;
-    height: 30%;
-  } */
 
-.prod-desc{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 1px;
-}
+  #nameError {
+    display: none;
+    font-size: 0.8em;
+  }
+  
+  #nameError.visible {
+    display: block;
+  }
+  
+  input.invalid {
+    border-color: red;
+  }
